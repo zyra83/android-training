@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">inventaire</string>
+    <string name="lib_bouton_increase">increase</string>
+    <string name="lib_bouton_decrease">decrease</string>
+    <string name="hint">hint</string>
+    <string name="name">Name</string>
+</resources>
