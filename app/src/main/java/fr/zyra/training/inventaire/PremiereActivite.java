@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +17,7 @@ import android.widget.ProgressBar;
 
 import java.math.BigDecimal;
 
-public class PremiereActivite extends Activity implements View.OnClickListener {
+public class PremiereActivite extends Activity implements View.OnClickListener, TextWatcher {
 
     BigDecimal compteur = new BigDecimal(0);
     EditText editText;
@@ -38,6 +40,7 @@ public class PremiereActivite extends Activity implements View.OnClickListener {
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         imageView = (ImageView) findViewById(R.id.image_view);
 
+        editText.addTextChangedListener(this);
         increaseButton.setOnClickListener(this);
         decreaseButton.setOnClickListener(this);
 
@@ -101,5 +104,19 @@ public class PremiereActivite extends Activity implements View.OnClickListener {
         super.onDestroy();
     }
 
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        String text = editText.getText().toString();
+        editText.setError("text : " + text);
+    }
 }
